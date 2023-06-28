@@ -39,7 +39,7 @@
             android:checked="true"
             android:padding="8dp"
             android:text="@string/medium"
-            android:textColor="@android:color/white" />
+            android:textColor="@color/white" />
 
         <RadioButton
             android:id="@+id/radioButtonHigh"
@@ -48,7 +48,7 @@
             android:background="@android:color/holo_red_light"
             android:padding="8dp"
             android:text="@string/high"
-            android:textColor="@android:color/white" />
+            android:textColor="@color/white" />
     </RadioGroup>
 
     <Button
