@@ -51,8 +51,8 @@ public class AddNoteActivity extends AppCompatActivity {
             int id = database.getNotes().size();
             Note note = new Note(id, text, priority);
             database.add(note);
+            finish();
         }
-        finish();
     }
 
     private int getPriority() {
