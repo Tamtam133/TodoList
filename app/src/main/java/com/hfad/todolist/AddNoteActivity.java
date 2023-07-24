@@ -18,12 +18,13 @@ public class AddNoteActivity extends AppCompatActivity {
     private RadioButton radioButtonMedium;
     private Button buttonSave;
 
-    private Database database = Database.getInstance();
+    private NoteDatabase noteDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_note);
+        noteDatabase = NoteDatabase.getInstance(getApplication());
         initViews();
 
         buttonSave.setOnClickListener(new View.OnClickListener() {
@@ -48,9 +49,8 @@ public class AddNoteActivity extends AppCompatActivity {
             Toast.makeText(AddNoteActivity.this, R.string.error_fields_empty, Toast.LENGTH_SHORT).show();
         } else {
             int priority = getPriority();
-            int id = database.getNotes().size();
-            Note note = new Note(id, text, priority);
-            database.add(note);
+            Note note = new Note(text, priority);
+            noteDatabase.notesDao().add(note);
             finish();
         }
     }
